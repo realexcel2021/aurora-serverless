@@ -6,9 +6,9 @@ resource "random_string" "this" {
 resource "aws_secretsmanager_secret" "db_pass" {
   name = "db_pass_mssql-${random_string.this.result}"
 
-#   replica {
-#     region = local.region2
-#   }
+  replica {
+    region = local.region2
+  }
 
 }
 

@@ -1,6 +1,5 @@
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.0"
+  source  = "./modules/vpc"
 
   name = local.name
   cidr = local.vpc_cidr
@@ -14,8 +13,7 @@ module "vpc" {
 }
 
 module "vpc_secondary" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.0"
+  source  = "./modules/vpc_secondary"
 
   providers = {
     aws = aws.region2

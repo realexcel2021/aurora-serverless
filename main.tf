@@ -49,7 +49,7 @@ resource "aws_rds_global_cluster" "this" {
 }
 
 module "aurora_postgresql_v2_primary" {
-  source = "terraform-aws-modules/rds-aurora/aws"
+  source = "./modules/aurora_postgresql_v2_primary"
 
   name              = "${local.name}-postgresqlv2"
   engine            = data.aws_rds_engine_version.postgresql.engine
@@ -90,7 +90,7 @@ module "aurora_postgresql_v2_primary" {
 }
 
 module "aurora_postgresql_v2_secondary" {
-  source = "terraform-aws-modules/rds-aurora/aws"
+  source = "./modules/aurora_postgresql_v2_secondary"
 
   providers = {
     aws = aws.region2

@@ -1,6 +1,5 @@
 module "rds_proxy_sg_region_1" {
-  source  = "terraform-aws-modules/security-group/aws"
-  version = "~> 5.0"
+  source  = "./modules/rds_proxy_sg_region_1"
 
   name        = "${local.name}-proxy"
   description = "PostgreSQL RDS Proxy example security group"
@@ -29,8 +28,7 @@ module "rds_proxy_sg_region_1" {
 
 
 module "rds_proxy_sg_region_2" {
-  source  = "terraform-aws-modules/security-group/aws"
-  version = "~> 5.0"
+  source  = "./modules/rds_proxy_sg_region_2"
 
   providers = {
     aws = aws.region2

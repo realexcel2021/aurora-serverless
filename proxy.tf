@@ -3,7 +3,7 @@
 ################################################################################
 
 module "rds_proxy_region_1" {
-  source = "terraform-aws-modules/rds-proxy/aws"
+  source = "./modules/rds_proxy_region_1"
 
   name                   = "${local.name}-proxy"
   iam_role_name          = local.name
@@ -38,7 +38,7 @@ module "rds_proxy_region_1" {
 
 
 module "rds_proxy_region_2" {
-  source = "terraform-aws-modules/rds-proxy/aws"
+  source = "./modules/rds_proxy_region_2"
 
   providers = {
     aws = aws.region2

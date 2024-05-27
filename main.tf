@@ -66,7 +66,7 @@ module "aurora_postgresql_v2_primary" {
   db_subnet_group_name = module.vpc.database_subnet_group_name
   security_group_rules = {
     vpc_ingress = {
-      cidr_blocks = module.vpc.private_subnets_cidr_blocks
+      cidr_blocks = module.vpc.vpc_cidr_block
     }
   }
 
@@ -111,7 +111,7 @@ module "aurora_postgresql_v2_secondary" {
   db_subnet_group_name = module.vpc_secondary.database_subnet_group_name
   security_group_rules = {
     vpc_ingress = {
-      cidr_blocks = module.vpc_secondary.private_subnets_cidr_blocks
+      cidr_blocks = module.vpc_secondary.vpc_cidr_block
     }
   }
 

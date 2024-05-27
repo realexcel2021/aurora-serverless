@@ -11,7 +11,7 @@ module "rds_proxy_sg_region_1" {
     {
       description = "Private subnet PostgreSQL access"
       rule        = "postgresql-tcp"
-      cidr_blocks = join(",", module.vpc.private_subnets_cidr_blocks)
+      cidr_blocks = join(",", module.vpc.vpc_cidr_block)
     }
   ]
 
@@ -44,7 +44,7 @@ module "rds_proxy_sg_region_2" {
     {
       description = "Private subnet PostgreSQL access"
       rule        = "postgresql-tcp"
-      cidr_blocks = join(",", module.vpc_secondary.private_subnets_cidr_blocks)
+      cidr_blocks = join(",", module.vpc_secondary.vpc_cidr_block)
     }
   ]
 
